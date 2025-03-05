@@ -1,22 +1,14 @@
 #include <File.au3>
-#include "getDownloadsFolderFunc.au3"
-#include "waitForDownloadFunc.au3"
-#include "findLatestDownloadedFileFunc.au3"
-#include "installApplicationFunc.au3"
-#include "findInstalledProgramFunc.au3"
-
+#include "Func\getDownloadsFolderFunc.au3"
+#include "Func\waitForDownloadFunc.au3"
+#include "Func\findLatestDownloadedFileFunc.au3"
+#include "Func\installApplicationFunc.au3"
+#include "Func\findInstalledProgramFunc.au3"
+#include "Func\openLinkWithClickFunc.au3"
 
 
 Local $url = "https://pcapp.store"
-ShellExecute($url)
-
-Sleep(5000)
-
-Send("{TAB 6}")
-Send("{ENTER}")
-Sleep(1000)
-Send("{TAB}")
-Send("{ENTER}")
+OpenAndClickDownload($url)
 
 Local $downloadFolder = GetDownloadsFolder()
 Local $timeout = 30000
